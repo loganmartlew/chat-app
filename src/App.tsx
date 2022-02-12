@@ -1,15 +1,16 @@
 import { FC } from 'react';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import WelcomePage from './pages/WelcomePage';
-import SigninPage from './pages/SigninPage';
-import SignupPage from './pages/SignupPage';
+import WelcomePage from '~/pages/WelcomePage';
+import SigninPage from '~/pages/SigninPage';
+import SignupPage from '~/pages/SignupPage';
+import getTheme from '~/styles/theme';
 
 interface Props {}
 
 const App: FC<Props> = () => {
   return (
-    <>
+    <ThemeProvider theme={getTheme('dark')}>
       <CssBaseline />
       <BrowserRouter>
         <Routes>
@@ -18,7 +19,7 @@ const App: FC<Props> = () => {
           <Route path='/signup' element={<SignupPage />} />
         </Routes>
       </BrowserRouter>
-    </>
+    </ThemeProvider>
   );
 };
 
