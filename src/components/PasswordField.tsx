@@ -6,29 +6,35 @@ import {
   OutlinedInput,
   InputAdornment,
   IconButton,
+  FormHelperText,
 } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { styled } from '@mui/material/styles';
+
+const ErrorMessage = styled(FormHelperText)(({ theme }) => ({
+  color: theme.palette.error.main,
+}));
 
 interface Props {
-  error: boolean;
+  error: string | undefined;
   register: UseFormRegister<any>;
+  confirm?: boolean;
 }
 
-const PasswordField: FC<Props> = ({ error, register }) => {
+const PasswordField: FC<Props> = ({ error, register, confirm }) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
   return (
     <FormControl variant='outlined'>
-      <InputLabel
-        htmlFor='outlined-adornment-password'
-        color={error ? 'error' : 'primary'}
-      >
-        Password
+      <InputLabel htmlFor='confirmPassword' color={error ? 'error' : 'primary'}>
+        {confirm ? 'Confirm Password' : 'Password'}
       </InputLabel>
       <OutlinedInput
-        error={error}
+        error={!!error}
         type={showPassword ? 'text' : 'password'}
-        {...register('password', { required: true })}
+        {...register(confirm ? 'confirmPassword' : 'password', {
+          required: true,
+        })}
         endAdornment={
           <InputAdornment position='end'>
             <IconButton
@@ -41,8 +47,11 @@ const PasswordField: FC<Props> = ({ error, register }) => {
             </IconButton>
           </InputAdornment>
         }
-        label='Password'
+        label={confirm ? 'Confirm Password' : 'Password'}
       />
+      <ErrorMessage color='error'>
+        {typeof error === 'string' && error}
+      </ErrorMessage>
     </FormControl>
   );
 };
