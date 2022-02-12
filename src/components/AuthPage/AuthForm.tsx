@@ -5,11 +5,16 @@ import { styled } from '@mui/material/styles';
 import PasswordField from '~/components/PasswordField';
 import { AuthFormFields } from '~/types/authForm';
 
-const Form = styled('form')({
+const Form = styled('form')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: '1.5em',
-});
+  'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active':
+    {
+      '-webkit-box-shadow': `0 0 0 30px ${theme.palette.background.default} inset !important`,
+      'border-radius': '0',
+    },
+}));
 
 interface Props {
   onSubmit: SubmitHandler<AuthFormFields>;

@@ -10,7 +10,7 @@ interface Props {}
 
 const App: FC<Props> = () => {
   return (
-    <ThemeProvider theme={getTheme('dark')}>
+    <ThemeProvider theme={getTheme('light')}>
       <CssBaseline />
       <BrowserRouter>
         <Routes>
