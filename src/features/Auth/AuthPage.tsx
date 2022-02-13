@@ -5,7 +5,7 @@ import TitleText from '~/features/Auth/TitleText';
 import SocialLogins from '~/features/Auth/SocialLogins';
 import ChangePage from '~/features/Auth/ChangePageLink';
 import AuthForm from './AuthForm';
-import PageContainer from '~/components/PageContainer';
+import PageContainer from '~/components/CenteredContainer';
 
 interface Props {
   onSubmit: SubmitHandler<any>;

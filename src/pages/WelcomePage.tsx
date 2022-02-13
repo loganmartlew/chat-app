@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Box, Typography, Button } from '@mui/material';
-import PageContainer from '~/components/PageContainer';
+import PageContainer from '~/components/CenteredContainer';
 
 interface Props {}
 
