@@ -1,12 +1,15 @@
 import { useEffect, FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material';
+import getTheme from '~/styles/theme';
+import { useTheme } from '~/features/Theme/useTheme';
+import { Theme } from '~/features/Theme/themeSlice';
+
 import WelcomePage from '~/pages/WelcomePage';
 import SigninPage from '~/pages/SigninPage';
 import SignupPage from '~/pages/SignupPage';
-import getTheme from '~/styles/theme';
-import useTheme from '~/features/Theme/useTheme';
-import { Theme } from '~/features/Theme/themeSlice';
+import HomePage from '~/pages/HomePage';
+
 interface Props {}
 
 const App: FC<Props> = () => {
@@ -32,6 +35,10 @@ const App: FC<Props> = () => {
           <Route path='/' element={<WelcomePage />} />
           <Route path='/signin' element={<SigninPage />} />
           <Route path='/signup' element={<SignupPage />} />
+          <Route element={<HomePage />}>
+            <Route path='/home' element={<h1>Home</h1>} />
+            <Route path='/discover' element={<h1>Discover</h1>} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

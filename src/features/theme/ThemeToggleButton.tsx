@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { Tooltip, IconButton } from '@mui/material';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { Theme } from '~/features/Theme/themeSlice';
-import useTheme from '~/features/Theme/useTheme';
+import { useTheme } from '~/features/Theme/useTheme';
 
 interface Props {}
 
