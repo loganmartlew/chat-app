@@ -1,16 +1,19 @@
 import { FC } from 'react';
-import { CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import { RootState } from '~/app/rootReducer';
 import WelcomePage from '~/pages/WelcomePage';
 import SigninPage from '~/pages/SigninPage';
 import SignupPage from '~/pages/SignupPage';
 import getTheme from '~/styles/theme';
-
 interface Props {}
 
 const App: FC<Props> = () => {
+  const { theme } = useSelector((state: RootState) => state.theme);
+
   return (
-    <ThemeProvider theme={getTheme('light')}>
+    <ThemeProvider theme={getTheme(theme)}>
       <CssBaseline />
       <BrowserRouter>
         <Routes>
