@@ -5,12 +5,12 @@ export enum Theme {
   DARK = 'dark',
 }
 
-interface ThemeState {
-  theme: Theme;
+export interface ThemeState {
+  theme: Theme | null;
 }
 
 const initialState: ThemeState = {
-  theme: Theme.LIGHT,
+  theme: null,
 };
 
 const themeSlice = createSlice({
@@ -18,7 +18,7 @@ const themeSlice = createSlice({
   initialState,
   reducers: {
     toggleTheme(state, _) {
-      if (state.theme === Theme.LIGHT) {
+      if (state.theme === Theme.LIGHT || null) {
         state.theme = Theme.DARK;
       } else {
         state.theme = Theme.LIGHT;

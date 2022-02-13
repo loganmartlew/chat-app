@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Box, Typography, Button } from '@mui/material';
+import ThemeToggleButton from '~/features/Theme/ThemeToggleButton';
 
 interface Props {}
 
@@ -30,6 +31,7 @@ const WelcomePage: FC<Props> = () => {
             Sign Up
           </Button>
         </Box>
+        <ThemeToggleButton />
       </Box>
     </Container>
   );
