@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { User } from 'firebase/auth';
 
-interface AuthState {
+export interface AuthState {
   authUser: User | null;
 }
 

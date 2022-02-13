@@ -4,6 +4,8 @@ import { useDrawer } from '~/features/Drawer/useDrawer';
 import { useRouteTabs, TabPath } from '~/features/RouteTabs/useRouteTabs';
 import TopNavbar from '~/components/HomePage/TopNavbar';
 import Drawer from '~/features/Drawer/Drawer';
+import signOut from '~/services/firebase/signOut';
+import { useAuth } from '~/features/Auth/useAuth';
 
 const PATHS: TabPath[] = [
   { text: 'Chat Rooms', route: '/home' },
@@ -15,6 +17,7 @@ interface Props {}
 const HomePage: FC<Props> = () => {
   const [drawerOpen, toggleDrawer] = useDrawer();
   const tab = useRouteTabs(PATHS);
+  const { authUser } = useAuth();
 
   return (
     <>
@@ -24,7 +27,8 @@ const HomePage: FC<Props> = () => {
         onClose={() => toggleDrawer(false)}
         sxBox={{ width: 250 }}
       >
-        Hello
+        <p>{authUser?.email || 'logged out'}</p>
+        <button onClick={() => signOut()}>SignOut</button>
       </Drawer>
       <Outlet />
     </>
