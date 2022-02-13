@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { styled } from '@mui/material/styles';
-import FacebookButton from '~/components/FacebookButton';
-import GoogleButton from '~/components/GoogleButton';
+import FacebookButton from '~/features/Auth/SocialLogins/FacebookButton';
+import GoogleButton from '~/features/Auth/SocialLogins/GoogleButton';
 
 const SocialButtons = styled('div')({
   display: 'flex',

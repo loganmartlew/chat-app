@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { SubmitHandler } from 'react-hook-form';
 import { Container, Box, Divider } from '@mui/material';
-import TitleText from '~/components/AuthPage/TitleText';
-import SocialLogins from '~/components/AuthPage/SocialLogins';
-import ChangePage from '~/components/AuthPage/ChangePage';
+import TitleText from '~/features/Auth/TitleText';
+import SocialLogins from '~/features/Auth/SocialLogins';
+import ChangePage from '~/features/Auth/ChangePageLink';
 import AuthForm from './AuthForm';
 
 interface Props {

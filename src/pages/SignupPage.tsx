@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { SubmitHandler } from 'react-hook-form';
-import AuthPage from '~/components/AuthPage';
+import AuthPage from '~/features/Auth/AuthPage';
 import { AuthFormFields } from '~/types/authForm';
 
 interface FormInputs {

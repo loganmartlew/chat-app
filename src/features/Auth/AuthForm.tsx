@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { TextField, Button } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import PasswordField from '~/components/PasswordField';
+import PasswordField from '~/features/Auth/PasswordField';
 import { AuthFormFields } from '~/types/authForm';
 
 const Form = styled('form')(({ theme }) => ({

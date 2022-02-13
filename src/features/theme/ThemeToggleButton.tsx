@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Tooltip, IconButton } from '@mui/material';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 import { RootState } from '~/app/rootReducer';
-import { toggleTheme, Theme } from '~/features/theme/themeSlice';
+import { toggleTheme, Theme } from '~/features/Theme/themeSlice';
 
 interface Props {}
 
