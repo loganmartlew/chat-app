@@ -4,11 +4,12 @@ import { CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material';
 import getTheme from '~/styles/theme';
 import { useTheme } from '~/features/Theme/useTheme';
 import { Theme } from '~/features/Theme/themeSlice';
+import RequireAuth from '~/features/Auth/RequireAuth';
 
 import WelcomePage from '~/pages/WelcomePage';
 import SigninPage from '~/pages/SigninPage';
 import SignupPage from '~/pages/SignupPage';
-import HomePage from '~/pages/HomePage';
+import MainApp from '~/pages/MainApp';
 
 interface Props {}
 
@@ -35,9 +36,11 @@ const App: FC<Props> = () => {
           <Route path='/' element={<WelcomePage />} />
           <Route path='/signin' element={<SigninPage />} />
           <Route path='/signup' element={<SignupPage />} />
-          <Route element={<HomePage />}>
-            <Route path='/home' element={<h1>Home</h1>} />
-            <Route path='/discover' element={<h1>Discover</h1>} />
+          <Route element={<RequireAuth />}>
+            <Route element={<MainApp />}>
+              <Route path='/home' element={<h1>Home</h1>} />
+              <Route path='/discover' element={<h1>Discover</h1>} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
