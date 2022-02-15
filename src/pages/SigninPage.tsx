@@ -10,10 +10,12 @@ interface Props {}
 const SigninPage: FC<Props> = () => {
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<AuthFormFields> = ({ email, password }) => {
-    signIn(email, password).then(() => {
-      navigate('/home');
-    });
+  const onSubmit: SubmitHandler<AuthFormFields> = async ({
+    email,
+    password,
+  }) => {
+    await signIn(email, password);
+    navigate('/home');
   };
 
   return <AuthPage onSubmit={onSubmit} />;

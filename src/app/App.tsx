@@ -9,7 +9,7 @@ import RequireAuth from '~/features/Auth/RequireAuth';
 import WelcomePage from '~/pages/WelcomePage';
 import SigninPage from '~/pages/SigninPage';
 import SignupPage from '~/pages/SignupPage';
-import MainApp from '~/pages/MainApp';
+import MainApp from '~/pages/HomePage';
 
 interface Props {}
 

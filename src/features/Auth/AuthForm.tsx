@@ -29,9 +29,21 @@ const AuthForm: FC<Props> = ({ onSubmit, signUp }) => {
     formState: { errors },
   } = useForm();
 
+  const sumbitWithErrorHandling = (data: AuthFormFields) => {
+    onSubmit(data).catch((error: any) => {
+      if (error.code === 'auth/wrong-password') {
+        setError('password', { message: 'Incorrect password' });
+      }
+
+      if (error.code === 'auth/user-not-found') {
+        setError('email', { message: 'Account does not exist' });
+      }
+    });
+  };
+
   const submit: SubmitHandler<any> = (data: AuthFormFields, event) => {
     if (!signUp) {
-      onSubmit(data, event);
+      sumbitWithErrorHandling(data);
       return;
     }
 
@@ -40,7 +52,7 @@ const AuthForm: FC<Props> = ({ onSubmit, signUp }) => {
       return;
     }
 
-    onSubmit(data, event);
+    sumbitWithErrorHandling(data);
   };
 
   return (
@@ -48,6 +60,7 @@ const AuthForm: FC<Props> = ({ onSubmit, signUp }) => {
       <TextField
         label='Email'
         error={!!errors.email}
+        helperText={errors?.email?.message}
         {...register('email', { required: true })}
       />
       <PasswordField error={errors?.password?.message} register={register} />
