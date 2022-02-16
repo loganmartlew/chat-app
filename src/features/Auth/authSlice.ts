@@ -22,6 +22,7 @@ const authSlice = createSlice({
       state.authUser = {
         uid: user.uid,
         username: user.displayName,
+        avatar: user.photoURL || user.providerData[0].photoURL || '',
       };
     },
     removeAuthUser(state, _) {
