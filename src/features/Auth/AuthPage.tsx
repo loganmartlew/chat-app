@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useLocation, Navigate } from 'react-router-dom';
 import { SubmitHandler } from 'react-hook-form';
 import { Divider } from '@mui/material';
 import TitleText from '~/features/Auth/TitleText';
@@ -17,11 +17,10 @@ interface Props {
 
 const AuthPage: FC<Props> = ({ onSubmit, signUp }) => {
   const { authUser } = useAuth();
-  const navigate = useNavigate();
   const { state } = useLocation();
 
   if (authUser) {
-    navigate((state as RouterRedirectState)?.from || '/home');
+    return <Navigate to={(state as RouterRedirectState)?.from || '/home'} />;
   }
 
   return (

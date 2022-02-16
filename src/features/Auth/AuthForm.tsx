@@ -8,7 +8,7 @@ import { AuthFormFields } from '~/types/authForm';
 const Form = styled('form')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  gap: '1.5em',
+  gap: '1em',
   'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active':
     {
       '-webkit-box-shadow': `0 0 0 30px ${theme.palette.background.default} inset !important`,
@@ -63,6 +63,13 @@ const AuthForm: FC<Props> = ({ onSubmit, signUp }) => {
         helperText={errors?.email?.message}
         {...register('email', { required: true })}
       />
+      {signUp && (
+        <TextField
+          label='Username'
+          error={!!errors.username}
+          {...register('username', { required: true })}
+        />
+      )}
       <PasswordField error={errors?.password?.message} register={register} />
       {signUp && (
         <PasswordField

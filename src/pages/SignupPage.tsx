@@ -14,8 +14,12 @@ const SignupPage: FC<Props> = () => {
 
   console.log(state);
 
-  const onSubmit: SubmitHandler<AuthFormFields> = ({ email, password }) => {
-    signUp(email, password).then(() => {
+  const onSubmit: SubmitHandler<AuthFormFields> = ({
+    email,
+    username,
+    password,
+  }) => {
+    signUp(email, username, password).then(() => {
       navigate((state as RouterRedirectState)?.from || '/home');
     });
   };
