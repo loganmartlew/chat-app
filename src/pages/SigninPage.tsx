@@ -14,12 +14,10 @@ const SigninPage: FC<Props> = () => {
 
   console.log(state);
 
-  const onSubmit: SubmitHandler<AuthFormFields> = async ({
-    email,
-    password,
-  }) => {
-    await signIn(email, password);
-    navigate((state as RouterRedirectState)?.from || '/home');
+  const onSubmit: SubmitHandler<AuthFormFields> = ({ email, password }) => {
+    signIn(email, password).then(() => {
+      navigate((state as RouterRedirectState)?.from || '/home');
+    });
   };
 
   return <AuthPage onSubmit={onSubmit} />;
