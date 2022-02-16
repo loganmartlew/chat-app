@@ -12,7 +12,7 @@ const Form = styled('form')(({ theme }) => ({
   'input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active':
     {
       '-webkit-box-shadow': `0 0 0 30px ${theme.palette.background.default} inset !important`,
-      'border-radius': '0',
+      borderRadius: '0',
     },
 }));
 

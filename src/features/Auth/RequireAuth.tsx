@@ -9,7 +9,7 @@ const RequireAuth: FC<Props> = () => {
   const location = useLocation();
 
   if (!authUser) {
-    return <Navigate to='/signin' state={{ from: location }} />;
+    return <Navigate to='/signin' state={{ from: location.pathname }} />;
   }
 
   return <Outlet />;
