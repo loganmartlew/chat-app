@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { useDrawer } from '~/features/Drawer/useDrawer';
 import { useRouteTabs, TabPath } from '~/features/RouteTabs/useRouteTabs';
 import TopNavbar from '~/components/HomePage/TopNavbar';
+import BottomNavbar from '~/components/HomePage/BottomNavbar';
 import Drawer from '~/features/Drawer/Drawer';
 import signOut from '~/services/firebase/signOut';
 import { useAuth } from '~/features/Auth/useAuth';
@@ -22,15 +23,16 @@ const HomePage: FC<Props> = () => {
   return (
     <>
       <TopNavbar tab={tab} toggleDrawer={toggleDrawer} />
-      <Drawer
+      {/* <Drawer
         open={drawerOpen}
         onClose={() => toggleDrawer(false)}
         sxBox={{ width: 250 }}
       >
         <p>{authUser?.email || 'logged out'}</p>
         <button onClick={() => signOut()}>SignOut</button>
-      </Drawer>
+      </Drawer> */}
       <Outlet />
+      <BottomNavbar />
     </>
   );
 };

@@ -19,7 +19,7 @@ const SignupPage: FC<Props> = () => {
     username,
     password,
   }) => {
-    signUp(email, username, password).then(() => {
+    return signUp(email, username, password).then(() => {
       navigate((state as RouterRedirectState)?.from || '/home');
     });
   };

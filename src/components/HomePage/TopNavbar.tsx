@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { AppBar, IconButton, Tabs, Tab } from '@mui/material';
+import { IconButton, Tabs, Tab } from '@mui/material';
 import { Menu, Chat, Search } from '@mui/icons-material';
+import AppBar from '~/components/AppBar';
 
 interface Props {
   tab: number;
@@ -11,9 +12,9 @@ interface Props {
 const TopNavbar: FC<Props> = ({ tab, toggleDrawer }) => {
   return (
     <AppBar position='static' sx={{ display: 'flex', flexDirection: 'row' }}>
-      <IconButton sx={{ mx: 1 }} onClick={() => toggleDrawer()}>
+      {/* <IconButton sx={{ mx: 1 }} onClick={() => toggleDrawer()}>
         <Menu />
-      </IconButton>
+      </IconButton> */}
       <Tabs
         variant='fullWidth'
         indicatorColor='primary'

@@ -15,7 +15,7 @@ const SigninPage: FC<Props> = () => {
   console.log(state);
 
   const onSubmit: SubmitHandler<AuthFormFields> = ({ email, password }) => {
-    signIn(email, password).then(() => {
+    return signIn(email, password).then(() => {
       navigate((state as RouterRedirectState)?.from || '/home');
     });
   };

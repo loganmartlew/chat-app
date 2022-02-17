@@ -14,9 +14,14 @@ const ThemeToggleButton: FC<Props> = () => {
       <IconButton
         aria-label='toggle theme'
         color='inherit'
+        size='large'
         onClick={() => toggleTheme()}
       >
-        {theme === Theme.DARK ? <Brightness7 /> : <Brightness4 />}
+        {theme === Theme.DARK ? (
+          <Brightness7 fontSize='inherit' />
+        ) : (
+          <Brightness4 fontSize='inherit' />
+        )}
       </IconButton>
     </Tooltip>
   );

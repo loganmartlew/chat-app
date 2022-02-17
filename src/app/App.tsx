@@ -1,6 +1,11 @@
 import { useEffect, FC } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material';
+import {
+  CssBaseline,
+  ThemeProvider,
+  useMediaQuery,
+  Paper,
+} from '@mui/material';
 import getTheme from '~/styles/theme';
 import { useTheme } from '~/features/Theme/useTheme';
 import { Theme } from '~/features/Theme/themeSlice';
@@ -9,7 +14,7 @@ import RequireAuth from '~/features/Auth/RequireAuth';
 import WelcomePage from '~/pages/WelcomePage';
 import SigninPage from '~/pages/SigninPage';
 import SignupPage from '~/pages/SignupPage';
-import MainApp from '~/pages/HomePage';
+import MainApp from '~/pages/MainApp';
 
 interface Props {}
 
