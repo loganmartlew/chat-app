@@ -22,7 +22,7 @@ const TopNavbar: FC<Props> = ({ tab, toggleDrawer }) => {
         sx={{ flexGrow: 1 }}
       >
         <Tab
-          label='Chat Rooms'
+          label='Your Rooms'
           icon={<Chat />}
           iconPosition='end'
           component={Link}
